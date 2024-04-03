@@ -1,4 +1,4 @@
-﻿#include"thuviencaytanloe.h"
+#include"thuviencaytanloe.h"
 void preOrder(Node* root)
 {
 	if (root != NULL)
@@ -118,23 +118,6 @@ NodePtr splay(NodePtr &r, NodePtr nodeX)
 }
 NodePtr insert(NodePtr&r, int x)
 {
-	/*if (r == NULL) {
-		r = createNode(x);
-		return r;
-	}
-
-	NodePtr newNode = createNode(x);
-
-	if (x < r->key) {
-		newNode->right = r;
-		r = newNode;
-	}
-	else {
-		newNode->left = r;
-		r = newNode;
-	}
-
-	return splay(r, newNode);*/
 	if (r == NULL) {
 		r = createNode(x);
 		return r;
@@ -145,26 +128,16 @@ NodePtr insert(NodePtr&r, int x)
 		return insert(r->right, x);
 }
 NodePtr insertAndSplay(NodePtr &r, int x)
-{/*
-	NodePtr node = findAndSplay(r, x);
-	if (node == NULL || node->key != x) {
-		return insert(r, x);
-	}
-	else {
-		return splay(r, node);
-	}
-	*/
+{
 	NodePtr node = insert(r, x);
 	splayToRoot(r, node);
 	return node;
 }
-//NodePtr deleteNodeAndSplay(NodePtr&r, int x)
-//{
-void deleteNodeAndSplay(NodePtr&r, int x)
+NodePtr deleteNodeAndSplay(NodePtr&r, int x)
 {
 	NodePtr p = find(r, x);
 	if (p == NULL)
-		return;
+		return r;
 	splayToRoot(r, p);
 	p = r->left;
 	while (p->right != NULL)
@@ -174,22 +147,5 @@ void deleteNodeAndSplay(NodePtr&r, int x)
 	r = r->left;
 	r->right = p->right;
 	delete p;
-	/*NodePtr p = find(r, x);
-	if (p == NULL) {
-		cout << "Node " << x << " not found in the tree." << endl;
-		return r;
-	}
-	splayToRoot(r, p);
-	NodePtr newRoot = NULL;
-	if (p->left != NULL) {
-		newRoot = p->left;
-		splayToRoot(newRoot, p->left);
-		newRoot->right = p->right;
-	}
-	else {
-		newRoot = p->right;
-	}
-	delete p;
-	return newRoot;
-*/
+	return r;
 }

@@ -16,6 +16,6 @@ NodePtr find(NodePtr r, int x);
 NodePtr findAndSplay(NodePtr r, int x);
 NodePtr insert(NodePtr&r, int x);
 NodePtr insertAndSplay(NodePtr &r, int x);
-void deleteNodeAndSplay(NodePtr&r, int x);
+NodePtr deleteNodeAndSplay(NodePtr&r, int x);
 void splayToRoot(NodePtr &r, NodePtr node);
 void preOrder(Node* root);

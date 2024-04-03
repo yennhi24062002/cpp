@@ -1,4 +1,4 @@
-﻿#include <iostream> 
+#include <iostream> 
 #include "thuviencaytanloe.h"
 using namespace std;
 int main()
@@ -21,7 +21,7 @@ int main()
 	preOrder(r);
 	cout << endl;
 	// Xóa phần tử 5 khỏi cây
-	deleteNodeAndSplay(r, 5);
+	r = deleteNodeAndSplay(r, 5);
 	preOrder(r);
 	cout << endl;
 	return 0;

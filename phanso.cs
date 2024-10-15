@@ -139,3 +139,45 @@ namespace phanso
         }
     }
 }
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace phanso
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            phanso ps1 = new phanso(1, 2);
+            phanso ps2 = new phanso(3, 4);
+
+            // Cong hai phan so
+            phanso tong = ps1 + ps2;
+            Console.WriteLine("Tong la: " + tong.Xuat());
+
+            // Tru hai phan so
+            phanso hieu = ps1 - ps2;
+            Console.WriteLine("Hieu la: " + hieu.Xuat());
+
+            // Nhan hai phan so
+            phanso tich = ps1 * ps2;
+            Console.WriteLine("Tich la: " + tich.Xuat());
+
+            // Chia hai phan so
+            phanso thuong = ps1 / ps2;
+            Console.WriteLine("Thuong la: " + thuong.Xuat());
+
+            // So sanh hai phan so
+            if (ps1 > ps2)
+                Console.WriteLine("Phan so 1 > Phan so 2");
+            else
+                Console.WriteLine("Phan so 1 < Phan so 2");
+
+            Console.ReadLine();
+        }
+    }
+}
+
